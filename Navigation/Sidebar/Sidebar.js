@@ -18,6 +18,7 @@ const renderLinks = () => {
 const sidebarTemplate = () => {
     return ` 
             <nav class="Drawer close" data-type="nav">
+            <input id="sugest" class="suggest" type="text">
                 <ul>
                     ${renderLinks().join('')}
                 </ul>
@@ -41,11 +42,12 @@ class Sidebar {
     #setup() {
         this.clickHandler = this.clickHandler.bind(this)
         this.menuToggle.addEventListener('click', this.clickHandler)
-        this.menuToggle.classList.add('MenuToggle')
         this.toggleIcon = document.createElement('i')
+        this.menuToggle.classList.add('MenuToggle')
         this.toggleIcon.classList.add('fa', 'fa-bars')
         this.menuToggle.append(this.toggleIcon)
         this.nav = this.sidebar.querySelector('[data-type="nav"]')
+
     }
 
     clickHandler(event) {
