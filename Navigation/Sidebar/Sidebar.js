@@ -18,7 +18,6 @@ const renderLinks = () => {
 const sidebarTemplate = () => {
     return ` 
             <nav class="Drawer close" data-type="nav">
-            <input id="sugest" class="suggest" type="text">
                 <ul>
                     ${renderLinks().join('')}
                 </ul>
