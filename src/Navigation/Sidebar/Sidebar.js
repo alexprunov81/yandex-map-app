@@ -1,4 +1,6 @@
-// import {Marker} from "@/Marker/Marker"
+import {Marker} from "@/CreateMarker/CreateMarker"
+
+const MarkerForm = new Marker()
 
 const links = [
     {to: '/', label: 'Карта'},
@@ -21,8 +23,8 @@ const sidebarTemplate = () => {
     return ` 
             <nav class="Drawer close" data-type="nav">
                 <ul>
-                    ${renderLinks().join('')}
                 </ul>
+                ${MarkerForm.render()}
             </nav>
 `
 }

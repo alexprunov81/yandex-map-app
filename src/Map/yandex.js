@@ -39,6 +39,7 @@ export const init = () => {
 
     objectManager.objects.options.set('preset', 'islands#blueIcon')
     myMap.geoObjects.add(objectManager)
+    new ymaps.SuggestView('adress')
 }
 
 
