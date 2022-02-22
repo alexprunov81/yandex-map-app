@@ -34,15 +34,19 @@ export const init = () => {
     }
     clearTheMap(myMap)
 
-    const objectManager = new ymaps.RemoteObjectManager('https://map-app-ad56e-default-rtdb.europe-west1.firebasedatabase.app/0/data.json',{
+    const objectManager = new ymaps.LoadingObjectManager('https://map-app-ad56e-default-rtdb.europe-west1.firebasedatabase.app/0/data.json',{
+        clusterize: true,
         // Опции кластеров задаются с префиксом 'cluster'.
         clusterHasBalloon: false,
         // Опции геообъектов задаются с префиксом 'geoObject'.
         geoObjectOpenBalloonOnClick: false
     })
 
+    objectManager.clusters.options.set({
+        clusterIconLayout: 'default#pieChart',
+    })
 
-
+    // objectManager.setFilter('options.preset == "islands#greenIcon"' )
     myMap.geoObjects.add(objectManager)
     new ymaps.SuggestView('adress')
 }
