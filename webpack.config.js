@@ -11,7 +11,11 @@ module.exports = (env, argv) => {
     return {
         context: path.resolve(__dirname, 'src'),
         entry: {
-            main: './index.js'
+            main: [
+                'core-js/stable',
+                'regenerator-runtime/runtime',
+                './index.js'
+            ]
         },
         output: {
             path: path.resolve(__dirname, 'dist'),
@@ -33,6 +37,16 @@ module.exports = (env, argv) => {
                         "css-loader",
                         "sass-loader"
                     ]
+                },
+                {
+                    test: /\.m?js$/,
+                    exclude: /node_modules/,
+                    use: {
+                        loader: "babel-loader",
+                        options: {
+                            presets: ['@babel/preset-env']
+                        }
+                    }
                 }
             ]
         },

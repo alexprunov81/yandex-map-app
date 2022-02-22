@@ -37,14 +37,24 @@ export const init = () => {
     const objectManager = new ymaps.LoadingObjectManager('https://map-app-ad56e-default-rtdb.europe-west1.firebasedatabase.app/0/data.json',{
         clusterize: true,
         // Опции кластеров задаются с префиксом 'cluster'.
-        clusterHasBalloon: false,
+        clusterHasBalloon: true,
         // Опции геообъектов задаются с префиксом 'geoObject'.
-        geoObjectOpenBalloonOnClick: false
+        clusterDisableClickZoom: true,
+        geoObjectOpenBalloonOnClick: true,
+        clusterIconLayout: 'default#pieChart',
+        clusterBalloonContentLayout: "cluster#balloonAccordion"
     })
 
-    objectManager.clusters.options.set({
-        clusterIconLayout: 'default#pieChart',
-    })
+    // objectManager.clusters.options.set({
+    //     clusterIconLayout: 'default#pieChart',
+    //     balloonContentLayout: "cluster#balloonAccordion"
+    // })
+
+    // new ymaps.Clusterer({
+    //     clusterDisableClickZoom: true,
+    //     // Используем макет "аккордеон"
+    //
+    // })
 
     // objectManager.setFilter('options.preset == "islands#greenIcon"' )
     myMap.geoObjects.add(objectManager)
